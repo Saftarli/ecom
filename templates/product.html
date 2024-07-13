@@ -13,13 +13,28 @@
                 <center>
                     <h5 class="card-title">{{product.name}}</h5>
                     <p class="card-text">{{ product.description}}</p>
-                    <br><br>
+                    {% if product.is_sale %}
+                    <div class="d-flex justify-content-center small text-warning mb-2">
+                                     <div class="bi-star-fill"></div>&nbsp;&nbsp;Sale!&nbsp;&nbsp;
+                                     <div class="bi-star-fill"></div>
+                                    </div>
+                                    <!-- Product price-->
+                                    <strike>${{product.price}}</strike> 
+                                    &nbsp;
+                                    ${{ product.sales_price }}
+                    {% else %}
+                        ${{ product.price}}
+                    {% endif %}
+                    <br>
+
+
+
                     <a href="{% url 'home'%}" class="btn btn-secondary">Home</a>
                 </center>
             </div>
         </div>
     </div>
     </div>
-<br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 {% endblock%}
